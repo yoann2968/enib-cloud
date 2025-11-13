@@ -99,7 +99,7 @@ No resources found in default namespace.
 On demande à Kubernetes de créer l'objet décrit dans le fichier deployment.yaml
 
 ```
-$kubectl apply -f deployment.yaml
+$ kubectl apply -f deployment.yaml
 deployment.apps/nginx-deployment created
 ```
 
@@ -123,9 +123,9 @@ Kubernetes doit assurer de déployer le bon nombre de replicas demandées dans l
 
 Que se passe-t-il si j'en supprime un ?
 ```console
-$kubectl delete pod nginx-deployment-85996f8dbd-6vvhk
+$ kubectl delete pod nginx-deployment-85996f8dbd-6vvhk
 pod "nginx-deployment-85996f8dbd-6vvhk" deleted
-$kubectl get pods
+$ kubectl get pods
 NAME                                READY   STATUS    RESTARTS   AGE
 nginx-deployment-85996f8dbd-v4wrb   1/1     Running   0          3m46s
 nginx-deployment-85996f8dbd-l2lhp   1/1     Running   0          3m46s
@@ -138,7 +138,7 @@ On voit que le pod supprimé n’apparaît plus. Par contre, un nouveau pod ```n
 
 Dans la déclaration YAML, on a demandé 3 replicas du pod.  C'est bien ce qu'on a : 
 ```
-$kubectl get pods
+$ kubectl get pods
 NAME                                      READY   STATUS    RESTARTS   AGE
 nginx-deployment-57b465fc78-qwzst   1/1     Running   0          4m30s
 nginx-deployment-57b465fc78-66m5m   1/1     Running   0          3m17s
@@ -148,12 +148,12 @@ nginx-deployment-57b465fc78-av15r   1/1     Running   0          2m35s
 On peut toutefois modifier en direct le nombre de replicas avec la commande  ```scale``` du client. On va réduire le nombre de replicas à 2.
 
 ```
-$kubectl scale deployment nginx-deployment --replicas=2
+$ kubectl scale deployment nginx-deployment --replicas=2
 deployment.apps/nginx-deployment scaled
 ```
 Si on affiche à nouveau les pods, on voit qu'on en a un de moins qu'avant :
 ```
-$kubectl get pods
+$ kubectl get pods
 NAME                                      READY   STATUS    RESTARTS   AGE
 nginx-deployment-57b465fc78-qwzst   1/1     Running   0          6m20s
 nginx-deployment-57b465fc78-66m5m   1/1     Running   0          5m7s

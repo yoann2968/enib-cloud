@@ -73,19 +73,15 @@
         L'exécution de l'image docker est faite avec la commande suivante
         ```Dockerfile
         docker run -d -p 8080:8080 bplace.api:1.0
-
-        docker run -d --network host bplace.api:1.0
         ```
         la partie "-d" permet d'exécuter en arrière-plan l'image docker et la partie "-p" de faire le mapping entre le port local et le port de l'image docker
-
-        Pour une utilisation dans gitpod, il faut utiliser la 2ème commande, sinon le port ne pourra pas être accessible par gitpod pour une utilisation dans le navigateur.
         </details>
 - Visualisation de la réponse de l'api à l'IHM (HTTPS://DNS/api/place/1)
 - Rendre public le port ouvert pour l'API
     <details>
     <summary>Solution</summary>
 
-    En allant dans l'onglet Environment puis open port. Il faut configurer l'ouverture du port 8080
+    En allant dans l'onglet PORTS rendre publique le port 8080
     </details>
 
 ## Génération de l'image docker WEB (bplace.web)
@@ -169,19 +165,15 @@
 
         L'exécution de l'image docker est faite avec la commande suivante
         ```Dockerfile
-        docker run -d -p 8081:8081 bplace.web:1.0
-
-        docker run -d --network host bplace.web:1.0
+        docker run -d -p 8081:80 bplace.web:1.0
         ```
-        la partie "-d" permet d'exécuter en arrière-plan l'image docker et la partie "-p" de faire le mapping entre le port local (8081) et le port de l'image docker (8081)
-
-        Pour une utilisation dans gitpod, il faut utiliser la 2ème commande, sinon le port ne pourra pas être accessible par gitpod pour une utilisation dans le navigateur.
+        la partie "-d" permet d'exécuter en arrière-plan l'image docker et la partie "-p" de faire le mapping entre le port local (8081) et le port de l'image docker (80)
         </details>
 - Visualisation de la page WEB
     <details>
     <summary>Solution</summary>
 
-    En allant dans l'onglet Environment puis open port. Il faut configurer l'ouverture du port 8081
+    En allant dans l'onglet PORTS rendre publique le port 8081
     </details>
 
 ### Connexion entre l'application Angular et l'API
