@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app }}-deployment
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      component: {{ .Values.app }}
+  template:
+    metadata:
+      labels:
+        component: {{ .Values.app }}
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: component
+                  operator: In
+                  values:
+                  - {{ .Values.app }}
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+        - name: {{ .Values.app }}
+          image: "$DOCKER_REG_URL/$APPLI"
+          resources:
+            requests:
+              memory: {{ .Values.ressources.requests.memory }}
+              cpu: {{ .Values.ressources.requests.cpu }}
+            limits:
+              memory: {{ .Values.ressources.limits.memory }}
+              cpu: {{ .Values.ressources.limits.cpu }}
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+          volumeMounts:
+          - name: cache-volume
+            mountPath: /var/cache/nginx
+          - name: run-volume
+            mountPath: /var/run
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+          securityContext:
+              readOnlyRootFilesystem: true
+              runAsUser: 1000
+      volumes:
+        - name: cache-volume
+          emptyDir: {}
+        - name: run-volume
+          emptyDir: {}

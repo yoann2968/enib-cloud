@@ -1,0 +1,11 @@
+{
+  "/": {
+    "target": "http://ec2-35-181-53-71.eu-west-3.compute.amazonaws.com:8080/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/": ""
+    }
+  }
+}

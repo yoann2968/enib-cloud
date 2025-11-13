@@ -1,0 +1,10 @@
+replicaCount: 2
+host: playlogs.ctn1.pic.services.prod
+
+ressources:
+  requests:
+    cpu: "250m"
+    memory: "256Mi"
+  limits:
+    cpu: "250m"
+    memory: "500Mi"
