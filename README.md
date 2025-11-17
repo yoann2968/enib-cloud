@@ -2,6 +2,11 @@
 
 ## Architecture
 
+![Architecture AWS](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/yoann2968/enib-cloud/main/diagrams/aws-architecture.puml)
+
+<details>
+<summary>Code PlantUML</summary>
+
 ```plantuml
 @startuml
 'Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -48,8 +53,9 @@ AWSCloudGroup(cloud) {
 
 users-->ec2_web
 @enduml
-
 ```
+
+</details>
 
 - Sur `EC2 Web` : un serveur NGINX est déployé et écoute sur le port `80`. Il permet de :
     - Exposer les ressources Angular (html, js, css, etc.) lors de l'accès sur la racine du serveur
@@ -184,6 +190,11 @@ Supprimer les ressources créées :
 
 ## Architecture
 
+![Architecture FaaS](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/yoann2968/enib-cloud/main/diagrams/faas-architecture.puml)
+
+<details>
+<summary>Code PlantUML</summary>
+
 ```plantuml
 @startuml component
 !include <aws/common>
@@ -236,6 +247,8 @@ browser -> lambda_add
 
 @enduml
 ```
+
+</details>
 
 L'application à déployer est un multiplicateur :
 - Le site web static est exposé dans un bucket S3 public
