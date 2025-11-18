@@ -113,7 +113,7 @@ Le service permet d'utiliser sept moteurs : Amazon Aurora compatible avec MySQL,
 - Installation de l'application API Java
     - Depuis la page de l'instance, cliquer sur `Se connecter`
     - Sélectionner `EC2 Instance Connect` puis cliquer sur `Se connecter`. Un terminal s'ouvre dans un nouvel onglet
-    - Exécuter le script d'installation : `curl https://gitlab.com/enib1/lab/-/raw/main/aws/web/init-vm-web.sh | bash`
+    - Exécuter le script d'installation : `curl https://raw.githubusercontent.com/yoann2968/enib-cloud/refs/heads/main/aws/web/init-vm-web.sh | bash`
     - Le script se termine avec `Web app started`
 - Vérifier son fonctionnement en accédant via un navigateur à `http://${DNS_PUBLIC}`. Une application doit apparaitre avec un gros carré noir au milieu. Ce carré noir implique que l'application Angular fonctionne mais qu'il n'y a pas d'API.
 
@@ -136,7 +136,7 @@ Le service permet d'utiliser sept moteurs : Amazon Aurora compatible avec MySQL,
 - Installation de l'application API Java
     - Depuis la page de l'instance, cliquer sur `Se connecter`
     - Sélectionner `EC2 Instance Connect` puis cliquer sur `Se connecter`. Un terminal s'ouvre dans un nouvel onglet
-    - Exécuter le script d'installation : `curl https://gitlab.com/enib1/lab/-/raw/main/aws/api/init-vm-api.sh | bash`
+    - Exécuter le script d'installation : `curl https://raw.githubusercontent.com/yoann2968/enib-cloud/refs/heads/main/aws/api/init-vm-api.sh | bash`
     - Le script se termine avec `API app created`
 
 ## Connexion des instances entre elles

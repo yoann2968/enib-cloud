@@ -8,9 +8,9 @@ cd /usr/local/applications
 
 
 echo "Downloding API app"
-curl https://gitlab.com/enib1/lab/-/raw/main/aws/api/bplace.jar?inline=false --output bplace.jar
-curl https://gitlab.com/enib1/lab/-/raw/main/aws/api/launch.sh?inline=false --output launch.sh
-curl https://gitlab.com/enib1/lab/-/raw/main/aws/api/launch.env?inline=false --output launch.env
+curl https://raw.githubusercontent.com/yoann2968/enib-cloud/refs/heads/main/aws/api/bplace.jar --output bplace.jar
+curl https://raw.githubusercontent.com/yoann2968/enib-cloud/refs/heads/main/aws/api/launch.sh --output launch.sh
+curl https://raw.githubusercontent.com/yoann2968/enib-cloud/refs/heads/main/aws/api/launch.env --output launch.env
 
 chmod +x launch.sh
 nohup ./launch.sh &

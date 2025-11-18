@@ -4,11 +4,11 @@ sudo apt -y install nginx
 
 echo "Downloding angular app"
 cd /tmp/
-curl https://gitlab.com/enib1/lab/-/raw/main/aws/web/bplace.tar?inline=false --output bplace.tar
+curl https://raw.githubusercontent.com/yoann2968/enib-cloud/refs/heads/main/aws/web/bplace.tar --output bplace.tar
 tar xvf bplace.tar
 sudo cp dist/*  /var/www/html/
 
-curl https://gitlab.com/enib1/lab/-/raw/main/aws/web/nginx.conf?inline=false --output nginx.conf
+curl https://raw.githubusercontent.com/yoann2968/enib-cloud/refs/heads/main/aws/web/nginx.conf --output nginx.conf
 sudo cp nginx.conf /etc/nginx/sites-available/default
 sudo chmod 774 /etc/nginx/sites-available/default
 sudo systemctl restart nginx.service
