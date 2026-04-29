@@ -15,7 +15,7 @@ spec:
         app: {{ .Values.bdd.name }}
     spec:
       containers:
-      - image: docker.io/library/mariadb:10.3
+      - image: docker.io/library/mariadb:10.4
         name: {{ .Values.bdd.name }}
         env:
           - name: MYSQL_ROOT_PASSWORD

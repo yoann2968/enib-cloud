@@ -28,7 +28,7 @@ Installation de l'application dans le cluster kubernetes:
 
 depuis le répertoire helm
 ```console
-microk8s helm install -f value.yaml demo .
+microk8s helm install -f values.yaml demo .
 ```
 
 Visualisation de l'application directement depuis le navigateur à partir de l'IP du WSL
