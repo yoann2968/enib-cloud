@@ -1,29 +1,12 @@
 # Lab - conteneurisation
 
-## Génération de l'image docker API (bplace.api)
+## A - Génération de l'image docker API (bplace.api)
 
 ### Tâches
 
-- Crée l'image docker pour la partie API en complétant le fichier Dockerfile (renseigner la base image et le point d'entrée du conteneur)
+- Crée l'image docker pour la partie API en complétant le fichier [DockerFile](bplace.api/Dockerfile) (renseigner la base image et le point d'entrée du conteneur à partir des informations du  [ReadMe](bplace.api/README.md) s'aider de l'exemple [ExempleDockerFile](bplace.api/ExempleDockerFile))
     - Utilisation de l'instruction FROM
     - Utilisation de l'instruction ENTRYPOINT au format shell
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-
-
-
         <details>
         <summary>Solution</summary>
 
@@ -48,25 +31,6 @@
 - Exécuter l'image
     - Utilisation de la commande docker run (docker run [OPTIONS] IMAGE [COMMAND] [ARG...])
     - Définir le mapping des ports
-        
-        
-        
-        
-        
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
         <details>
         <summary>Solution</summary>
 
@@ -84,82 +48,40 @@
     En allant dans l'onglet PORTS rendre publique le port 8080
     </details>
 
-## Génération de l'image docker WEB (bplace.web)
+## B - Génération de l'image docker WEB (bplace.web)
 
 ### Tâches
 
-- Crée l'image docker pour la partie WEB en complétant les informations manquantes (build de l'application et copie du code build dans nginx)
+- Crée l'image docker pour la partie WEB en complétant les informations manquantes  du [DockerFile](bplace.web/Dockerfile) (build de l'application et copie du code build dans nginx) lisez le [ReadMe](bplace.web/README.md))
     - Utilisation de l'instruction RUN
     - Utilisation de l'instruction COPY utilisant le build précédent
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <details>
-        <summary>Solution</summary>
-
-        En regardant sûr dans le README.md de la solution bplace.web, on retrouve les lignes de commande pour build l'application dans le cas ou angular n'est pas installé
-        ```Dockerfile
-        # BUILD L APPLICATION
-        RUN npm install
-
-        RUN npm run build -- --configuration production
-        ```
-
-        La copie du code build à l'étape précédente ce fait de la manière suivante
-        ```Dockerfile
-        # COPIER LE CODE BUILD DANS NGINX (code source /builder/dist à copier dans /usr/share/nginx/html et /builder/nginx.conf à copier dans /etc/nginx/nginx.conf)
-        COPY --from=builder /builder/dist /usr/share/nginx/html
-        COPY --from=builder /builder/nginx.conf /etc/nginx/nginx.conf
-        ```
-        La partie "--from=builder" permet de spécifier l'origine du code que l'on copie, correspondant à la 1er partie du Dockerfile permettant de build l'application
-
-        Une fois le fichier Dockerfile complet, le build de l'image est fait avec la commande suivante (en étant à la racine du projet)
-        ```Commande
-        docker build . -t bplace.web:1.0
-        ```
-        </details>
+          <details>
+          <summary>Solution</summary>
+  
+          En regardant sûr dans le README.md de la solution bplace.web, on retrouve les lignes de commande pour build l'application dans le cas ou angular n'est pas installé
+          ```Dockerfile
+          # BUILD L APPLICATION
+          RUN npm install
+  
+          RUN npm run build -- --configuration production
+          ```
+  
+          La copie du code build à l'étape précédente ce fait de la manière suivante
+          ```Dockerfile
+          # COPIER LE CODE BUILD DANS NGINX (code source /builder/dist à copier dans /usr/share/nginx/html et /builder/nginx.conf à copier dans /etc/nginx/nginx.conf)
+          COPY --from=builder /builder/dist /usr/share/nginx/html
+          COPY --from=builder /builder/nginx.conf /etc/nginx/nginx.conf
+          ```
+          La partie "--from=builder" permet de spécifier l'origine du code que l'on copie, correspondant à la 1er partie du Dockerfile permettant de build l'application
+  
+          Une fois le fichier Dockerfile complet, le build de l'image est fait avec la commande suivante (en étant à la racine du projet)
+          ```Commande
+          docker build . -t bplace.web:1.0
+          ```
+          </details>
 - Exécuter l'image
     - Utilisation de la commande docker run (docker run [OPTIONS] IMAGE [COMMAND] [ARG...])
     - Définir le mapping des ports
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <details>
         <summary>Solution</summary>
 
@@ -179,28 +101,6 @@
 ### Connexion entre l'application Angular et l'API
 
 - Corriger le lien entre l'application Angular et l'API
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <details>
     <summary>Solution</summary>
 

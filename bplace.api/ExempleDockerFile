@@ -1,0 +1,15 @@
+# Utilise une image Java 25 (JRE) comme base pour executer l'application
+FROM eclipse-temurin:25-jre
+
+# Definit le dossier de travail dans le conteneur
+WORKDIR /usr/src/myapp
+
+# Copie le fichier JAR de l'application depuis le contexte de build vers le conteneur
+COPY monAppliFictive.jar /usr/src/monAppliFictive/monAppliFictive.jar
+
+# Documente le port ecoute par l'API
+EXPOSE 8090
+
+# Definit la commande principale lancée automatiquement quand le conteneur démarre
+ENTRYPOINT java -jar /usr/src/monAppliFictive/monAppliFictive.jar
+
