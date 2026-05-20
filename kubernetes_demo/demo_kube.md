@@ -173,6 +173,10 @@ Kubernetes permet de mettre à jour les pods (changement de la version de l'imag
 	```console
 	watch kubectl get pods -o custom-columns=CONTAINER:.spec.containers[0].name,IMAGE:.spec.containers[0].image,STATUS:status.phase
 	```
+ 	Ou  
+ 	```console
+	 kubectl get pods -o custom-columns=CONTAINER:.spec.containers[0].name,IMAGE:.spec.containers[0].image,STATUS:status.phase -w
+	```
 
 - Dans un autre terminal, [modifier l'image utilisée](https://kubernetes.io/fr/docs/concepts/workloads/controllers/deployment/#mise-%C3%A0-jour-d-un-d%C3%A9ploiement) (passer à "latest" dans le déploiement et appliquer la modification.)
 	```console
