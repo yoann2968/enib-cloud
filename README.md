@@ -175,7 +175,7 @@ Les deux instances EC2 et la base de données ont été créées mais elles ne c
 - Après quelques instants, l'application Angular doit être fonctionnelle.
     - Vérifier son fonctionnement en accédant via un navigateur à `http://${DNS_PUBLIC_WEB}`
 
-## Nettoyage
+## Nettoyage (**appeller l'encadrant pour cette partie là**)
 Supprimer les ressources créées :
 - RDS 
     - Sur la page listant les bases, sélectionner la base et cliquer sur `Actions` > `Supprimer`
