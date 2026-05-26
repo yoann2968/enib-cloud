@@ -89,7 +89,7 @@ Le service permet d'utiliser sept moteurs : Amazon Aurora compatible avec MySQL,
         - Mot de passe : `admin123!`
         - Configuration d'instance : `db.t3.micro`
         - Stockage alloué : `20Go` `SSD polyvalent (gp2)`
-        - Groupes de sécurité VPC existants : sélectionner `db-sg`
+        - Groupes de sécurité VPC existants : sélectionner `defaut`
         - Configuration supplémentaire : Décocher sauvegarde et chiffrement
 - La création de l'instance va prendre 5/10 minutes. Passer à la suite.
 
